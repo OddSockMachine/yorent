@@ -11,14 +11,14 @@ defmodule Yorent.CityLandlordController do
   def index(conn, %{"city_id" => city_id}) do
     # Get landlords, preload city for name
     city = Repo.get!(City, city_id)
-    landlords = Repo.all(Landlord) #|> where([c] c.city_id == city_id)
+    landlords = Repo.all(Landlord |> where([l], l.city_id == ^city_id))
     # Get a map of landlord_id to number of houses
     num_houses = (Repo.all from l in Landlord, left_join: h in assoc(l, :houses), select: {l.id, count(h.id)}, group_by: l.id)
                   |> Enum.into(%{})
     # Merge num_houses into Landlord struct (creating a new map that looks like Landlord)
     landlords = Enum.map(landlords, fn(l) -> Map.merge(l, %{"num_houses": num_houses[l.id]}) end)
 
-    render(conn, "index.html", landlords: landlords)
+    render(conn, "index.html", landlords: landlords, city: city)
   end
 
   def new(conn, _params) do

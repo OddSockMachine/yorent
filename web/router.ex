@@ -18,10 +18,12 @@ defmodule Yorent.Router do
 
     get       "/",          PageController, :index
     resources "/cities",    CityController do
-      resources "/houses",    CityHouseController
-      resources "/landlords", CityLandlordController
+      resources "/houses",    CityHouseController, only [:index]
+      resources "/landlords", CityLandlordController, only [:index]
     end
-    resources "/landlords", LandlordController
+    resources "/landlords", LandlordController do
+      resources "/houses",    LandlordHouseController, only [:index]
+    end
     resources "/houses",    HouseController
   end
 
