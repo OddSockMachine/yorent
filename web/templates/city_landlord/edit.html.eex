@@ -1,0 +1,6 @@
+<h2>Edit landlord</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: landlord_path(@conn, :update, @landlord) %>
+
+<%= link "Back", to: landlord_path(@conn, :index) %>

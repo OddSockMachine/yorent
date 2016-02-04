@@ -1,0 +1,41 @@
+<h2>Show landlord</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @landlord.name %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @landlord.type %>
+  </li>
+
+  <li>
+    <strong>Average rating:</strong>
+    <%= @landlord.average_rating %>
+  </li>
+
+  <li>
+    <strong>Website:</strong>
+    <%= @landlord.website %>
+  </li>
+
+  <li>
+    <strong>City:</strong>
+    <%= @landlord.city.name %>
+  </li>
+
+  <ul>
+    <%= for house <- @landlord.houses do %>
+    <li><%= link house.name, to: house_path(@conn, :show, house) %></li>
+    <% end %>
+
+  </ul>
+
+
+</ul>
+
+<%= link "Edit", to: landlord_path(@conn, :edit, @landlord) %>
+<%= link "Back", to: landlord_path(@conn, :index) %>

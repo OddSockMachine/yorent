@@ -1,0 +1,36 @@
+<h2>Listing landlords</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Average rating</th>
+      <th>Number of properties</th>
+      <th>Website</th>
+      <th>City</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for landlord <- @landlords do %>
+    <tr>
+      <td><%= landlord.name %></td>
+      <td><%= landlord.type %></td>
+      <td><%= landlord.average_rating %></td>
+      <td><%= landlord.num_houses %></td>
+      <td><%= link landlord.website, to: landlord.website %></td>
+      <td><%= landlord.city.name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: landlord_path(@conn, :show, landlord), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: landlord_path(@conn, :edit, landlord), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: landlord_path(@conn, :delete, landlord), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New landlord", to: landlord_path(@conn, :new) %>

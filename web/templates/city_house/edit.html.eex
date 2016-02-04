@@ -1,0 +1,6 @@
+<h2>Edit house</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: house_path(@conn, :update, @house) %>
+
+<%= link "Back", to: house_path(@conn, :index) %>
