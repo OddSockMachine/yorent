@@ -1,12 +1,11 @@
-<h2>Listing cities</h2>
+<h2>Choose your city</h2>
 
 <table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>landlords</th>
-      <th>Houses</th>
-
+      <th>Number of Landlords</th>
+      <th>Number of Houses</th>
       <th></th>
     </tr>
   </thead>
@@ -20,9 +19,9 @@
       <td><%= city.num_houses %></td>
 
       <td class="text-right">
-        <%= link "Show", to: city_path(@conn, :show, city), class: "btn btn-default btn-xs" %>
+        <!-- <%= link "Show", to: city_path(@conn, :show, city), class: "btn btn-default btn-xs" %>
         <%= link "Edit", to: city_path(@conn, :edit, city), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: city_path(@conn, :delete, city), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Delete", to: city_path(@conn, :delete, city), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %> -->
       </td>
     </tr>
 <% end %>

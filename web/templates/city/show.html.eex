@@ -1,8 +1,27 @@
-<h2>Show city</h2>
+<h2>Welcome to <%=@city.name%></h2>
+<h3>Let's find you a nice place to live</h3>
 
 <ul>
 
-    <li>
+  <li>
+    <h4><%= link "Choose by Letting Agent", to: city_city_landlord_path(@conn, :index, @city) %></h4>
+    <p><%=@city.name%> has <%= @num_landlords %> agents.</p>
+    <p>Pick a landlord according to their satisfaction rating, and we'll show your what houses they have available</p>
+  </li>
+
+  <li>
+    <h4>Pick an area</h4>
+    <p>Need to live near the university or the station?</p>
+    <p>We'll find the best houses in the ideal location</p>
+  </li>
+
+  <li>
+    <h4><%= link "Show all houses in #{@city.name}", to: city_city_house_path(@conn, :index, @city) %></h4>
+    <p>A mega list of all <%=@num_houses%>  houses in York</p>
+    <p>Filter and sort all the houses until you find the perfect pad</p>
+  </li>
+
+    <!-- <li>
       <strong>Name:</strong>
       <%= @city.name %>
     </li>
@@ -19,7 +38,7 @@
       <%= @num_houses %>
       <%= link "Show all houses in #{@city.name}", to: city_city_house_path(@conn, :index, @city) %>
 
-    </li>
+    </li> -->
 
 </ul>
 
