@@ -38,10 +38,10 @@ defmodule Yorent.LandlordController do
   end
 
   def show(conn, %{"id" => id}) do
-    landlord = Repo.get!(Landlord, id) |> Repo.preload(:houses) |> Repo.preload(:city)
-    # num_houses = House |> where([h], h.landlord_id == ^id) |> select([h], count(h.id)) |> Repo.one!
-    # IO.inspect num_houses
-    render(conn, "show.html", landlord: landlord)
+    landlord = Repo.get!(Landlord, id) |> Repo.preload(:city)
+    num_houses = House |> where([h], h.landlord_id == ^id) |> select([h], count(h.id)) |> Repo.one!
+    IO.inspect num_houses
+    render(conn, "show.html", landlord: landlord, num_houses: num_houses)
   end
 
   def edit(conn, %{"id" => id}) do

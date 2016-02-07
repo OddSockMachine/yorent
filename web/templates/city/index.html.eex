@@ -13,8 +13,10 @@
   <tbody>
 <%= for city <- @cities do %>
     <tr>
-      <td><%= city.name %></td>
+      <td><%= link city.name, to: city_path(@conn, :show, city) %></td>
+
       <td><%= city.num_landlords %></td>
+      <%= link city.num_houses, to: city_city_landlord_path(@conn, :index, city) %>
       <td><%= city.num_houses %></td>
 
       <td class="text-right">

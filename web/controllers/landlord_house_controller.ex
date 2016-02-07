@@ -1,15 +1,15 @@
-defmodule Yorent.CityHouseController do
+defmodule Yorent.LandlordHouseController do
   use Yorent.Web, :controller
 
   alias Yorent.House
-  alias Yorent.City
+  alias Yorent.Landlord
 
   plug :scrub_params, "house" when action in [:create, :update]
 
-  def index(conn, %{"city_id" => city_id}) do
-    houses = Repo.all from h in House, where: h.city_id == ^city_id
-    city = Repo.one from c in City, where: c.id == ^city_id
-    render(conn, "index.html", houses: houses, city: city)
+  def index(conn, %{"landlord_id" => landlord_id}) do
+    houses = Repo.all from h in House, where: h.landlord_id == ^landlord_id
+    landlord = Repo.one from c in Landlord, where: c.id == ^landlord_id
+    render(conn, "index.html", houses: houses, landlord: landlord)
   end
 
   def new(conn, _params) do

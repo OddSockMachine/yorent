@@ -10,11 +10,15 @@
     <li>
       <strong>Landlords:</strong>
       <%= @num_landlords %>
+      <%= link "Show all landlords in #{@city.name}", to: city_city_landlord_path(@conn, :index, @city) %>
+
     </li>
 
     <li>
       <strong>Houses:</strong>
       <%= @num_houses %>
+      <%= link "Show all houses in #{@city.name}", to: city_city_house_path(@conn, :index, @city) %>
+
     </li>
 
 </ul>

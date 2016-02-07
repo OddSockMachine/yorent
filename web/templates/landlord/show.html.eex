@@ -27,12 +27,11 @@
     <%= @landlord.city.name %>
   </li>
 
-  <ul>
-    <%= for house <- @landlord.houses do %>
-    <li><%= link house.name, to: house_path(@conn, :show, house) %></li>
-    <% end %>
+  <li>
+    <strong>Number of houses:</strong>
+    <%= @num_houses %>
+  </li>
 
-  </ul>
 
 
 </ul>

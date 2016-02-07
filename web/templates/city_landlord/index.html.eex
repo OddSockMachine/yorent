@@ -18,7 +18,7 @@
       <td><%= landlord.name %></td>
       <td><%= landlord.type %></td>
       <td><%= landlord.average_rating %></td>
-      <td><%= landlord.num_houses %></td>
+      <td><%= link "#{landlord.num_houses}", to: landlord_landlord_house_path(@conn, :index, landlord) %></td>
       <td><%= link landlord.website, to: landlord.website %></td>
 
       <td class="text-right">

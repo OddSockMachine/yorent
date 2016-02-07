@@ -16,15 +16,18 @@
   <tbody>
 <%= for landlord <- @landlords do %>
     <tr>
-      <td><%= landlord.name %></td>
+      <td><%= link landlord.name, to: landlord_path(@conn, :show, landlord) %></td>
+
       <td><%= landlord.type %></td>
       <td><%= landlord.average_rating %></td>
-      <td><%= landlord.num_houses %></td>
+      <td><%= link landlord.num_houses, to: city_city_landlord_path(@conn, :index, @city) %></td>
+
+
       <td><%= link landlord.website, to: landlord.website %></td>
-      <td><%= landlord.city.name %></td>
+      <td><%= link landlord.city.name, to: city_path(@conn, :show, landlord.city) %></td>
 
       <td class="text-right">
-        <%= link "Show", to: landlord_path(@conn, :show, landlord), class: "btn btn-default btn-xs" %>
+        <!-- <%= link "Show", to: landlord_path(@conn, :show, landlord), class: "btn btn-default btn-xs" %> -->
         <%= link "Edit", to: landlord_path(@conn, :edit, landlord), class: "btn btn-default btn-xs" %>
         <%= link "Delete", to: landlord_path(@conn, :delete, landlord), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
       </td>

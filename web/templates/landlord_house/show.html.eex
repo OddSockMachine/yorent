@@ -1,0 +1,38 @@
+<h2>Show house</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @house.name %>
+  </li>
+
+  <li>
+    <strong>Average rating:</strong>
+    <%= @house.average_rating %>
+  </li>
+
+  <li>
+    <strong>Postcode:</strong>
+    <%= @house.postcode %>
+  </li>
+
+  <li>
+    <strong>City:</strong>
+    <%= @house.city_id %>
+  </li>
+
+  <li>
+    <strong>Landlord:</strong>
+    <%= @house.landlord_id %>
+  </li>
+
+  <li>
+    <strong>Price:</strong>
+    <%= @house.price %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: house_path(@conn, :edit, @house) %>
+<%= link "Back", to: house_path(@conn, :index) %>
