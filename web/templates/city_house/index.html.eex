@@ -1,36 +1,78 @@
 <h2>Listing houses in <%= @city.name %></h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Average rating</th>
-      <th>Postcode</th>
-      <th>City</th>
-      <th>Landlord</th>
-      <th>Price</th>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<!-- this adds Foundation Icon Fonts -->
+<style>body {
+  background: #F0F0F0; }
+
+.YR {
+  background: #fff;
+  padding: 1.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  .YR h3 {
+    font-weight: normal;
+    margin: 0;
+    padding: 0 0 0.5rem 0; }
+    @media only screen and (max-width: 64em) {
+      .YR h3 {
+        padding-top: 1rem; } }
+  .YR h6 {
+    color: #50b2d0;
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 0 0 0.5rem 0; }
+  .YR p {
+    font-size: 0.875rem;
+    line-height: 1.2rem;
+    margin: 0;
+    padding: 0.875rem 0;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999; }
+  .YR .button {
+    font-weight: bold;
+    color: #2BA6CB;
+    background: transparent;
+    padding-left: 0;
+    margin-bottom: 0;
+    box-shadow: none; }
+
+.row.wide {
+  max-width: rem-calc(1200); }
+</style>
+
+
+<article class="YR row wide">
+  <div class="large-6 columns">
+    <img src="https://img1.etsystatic.com/122/0/11134335/il_570xN.925485403_sxqj.jpg" alt="Mini Cooper Site Desktop Image">
+  </div>
+  <div class="large-6 columns">
+    <h3>Mini Cooper</h3>
+    <h6>built with foundation</h6>
+    <p>There’s nothing small about the effects on this “Mini” website and its use of scrolling as a fly-around of its eponymous car. The parallax steps aside on mobile for a neat intuitive image layout. The hamburger menu spins into action when clicked revealing a gorgeous dropdown.</p>
+    <a class="button" href="http://5-door.mini.com.au/">Take a Closer Look »</a>
+  </div>
+</article>
+
 <%= for house <- @houses do %>
-    <tr>
-      <td><%= house.name %></td>
-      <td><%= house.average_rating %></td>
-      <td><%= house.postcode %></td>
-      <td><%= house.city_id %></td>
-      <td><%= house.landlord_id %></td>
-      <td><%= house.price %></td>
-
-      <td class="text-right">
-        <%= link "Show", to: house_path(@conn, :show, house), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: house_path(@conn, :edit, house), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: house_path(@conn, :delete, house), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
-      </td>
-    </tr>
+  <article class="YR row wide">
+    <div class="large-6 columns">
+      <img src="https://img1.etsystatic.com/128/0/11134335/il_570xN.900566215_336r.jpg" alt="">
+    </div>
+    <div class="large-6 columns">
+      <h3><%= house.name %></h3>
+      <h6><%= view_price house.price %> pppw</h6>
+      <!-- <p><%= extract_features house %></p> -->
+      <p>X Bedrooms</p>
+      <p>Y Parking spaces</p>
+      <p>Close to York St John University</p>
+      <p>Bills included</p>
+      <%= link "Take a Closer Look", to: house_path(@conn, :show, house), class: "button" %>
+    </div>
+  </article>
 <% end %>
-  </tbody>
-</table>
 
 <%= link "New house", to: house_path(@conn, :new) %>

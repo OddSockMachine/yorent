@@ -8,4 +8,9 @@ defmodule Yorent.LandlordHouseView do
     "£" <> pounds <> "." <> pence
   end
 
+  def extract_features(house) do
+    # Look at all the info about a house, and extract the most useful features
+    # to show on the listing card
+    house.name
+  end
 end

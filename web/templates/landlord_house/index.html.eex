@@ -1,37 +1,37 @@
 <h2>Listing houses from <%= @landlord.name %></h2>
 
-<!-- this adds Foundation Icon Fonts!! -->
+<!-- this adds Foundation Icon Fonts -->
 <style>body {
   background: #F0F0F0; }
 
-.website-example {
+.YR {
   background: #fff;
   padding: 1.75rem;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
-  .website-example h3 {
+  .YR h3 {
     font-weight: normal;
     margin: 0;
     padding: 0 0 0.5rem 0; }
     @media only screen and (max-width: 64em) {
-      .website-example h3 {
+      .YR h3 {
         padding-top: 1rem; } }
-  .website-example h6 {
+  .YR h6 {
     color: #50b2d0;
     text-transform: uppercase;
     line-height: 1;
     font-size: 0.875rem;
     font-weight: bold;
     padding: 0 0 0.5rem 0; }
-  .website-example p {
+  .YR p {
     font-size: 0.875rem;
     line-height: 1.2rem;
     margin: 0;
     padding: 0.875rem 0;
     border-top: 1px solid #999;
     border-bottom: 1px solid #999; }
-  .website-example .button {
+  .YR .button {
     font-weight: bold;
     color: #2BA6CB;
     background: transparent;
@@ -44,39 +44,28 @@
 </style>
 
 
-<article class="website-example row wide">
-   <div class="large-6 columns">
-     <img src="https://img1.etsystatic.com/122/0/11134335/il_570xN.925485403_sxqj.jpg" alt="Mini Cooper Site Desktop Image">
-   </div>
-   <div class="large-6 columns">
-     <h3>Mini Cooper</h3>
-     <h6>built with foundation</h6>
-     <p>There’s nothing small about the effects on this “Mini” website and its use of scrolling as a fly-around of its eponymous car. The parallax steps aside on mobile for a neat intuitive image layout. The hamburger menu spins into action when clicked revealing a gorgeous dropdown.</p>
-     <a class="button" href="http://5-door.mini.com.au/">Take a Closer Look »</a>
-   </div>
- </article>
 
- <article class="website-example row wide">
-   <div class="large-6 columns">
-     <img src="https://img1.etsystatic.com/128/0/11134335/il_570xN.900566215_336r.jpg" alt="Mariott GoPro Site Desktop Image">
-   </div>
-   <div class="large-6 columns">
-     <h3>Marriott GoPro</h3>
-     <h6>built with foundation</h6>
-     <p>It’s hard to fault GoPro for their efforts to make their site, partnered with Marriott, friendly towards mobile devices. But it’s the active photography that makes us want to go. Watch the full screen background video or scale the browser down to see the map conform to smaller screen.</p>
-     <a class="button" href="http://marriott-gopro.com">Take a Closer Look »</a>
-   </div>
- </article>
+<article class="YR row wide">
+  <div class="large-6 columns">
+    <img src="https://img1.etsystatic.com/122/0/11134335/il_570xN.925485403_sxqj.jpg" alt="Mini Cooper Site Desktop Image">
+  </div>
+  <div class="large-6 columns">
+    <h3>Mini Cooper</h3>
+    <h6>built with foundation</h6>
+    <p>There’s nothing small about the effects on this “Mini” website and its use of scrolling as a fly-around of its eponymous car. The parallax steps aside on mobile for a neat intuitive image layout. The hamburger menu spins into action when clicked revealing a gorgeous dropdown.</p>
+    <a class="button" href="http://5-door.mini.com.au/">Take a Closer Look »</a>
+  </div>
+</article>
 
-
-  <%= for house <- @houses do %>
-  <article class="website-example row wide">
+<%= for house <- @houses do %>
+  <article class="YR row wide">
     <div class="large-6 columns">
       <img src="https://img1.etsystatic.com/128/0/11134335/il_570xN.900566215_336r.jpg" alt="">
     </div>
     <div class="large-6 columns">
       <h3><%= house.name %></h3>
       <h6><%= view_price house.price %> pppw</h6>
+      <!-- <p><%= extract_features house %></p> -->
       <p>X Bedrooms</p>
       <p>Y Parking spaces</p>
       <p>Close to York St John University</p>
@@ -84,8 +73,6 @@
       <%= link "Take a Closer Look", to: house_path(@conn, :show, house), class: "button" %>
     </div>
   </article>
-
-
-  <% end %>
+<% end %>
 
 <%= link "New house", to: house_path(@conn, :new) %> -->
