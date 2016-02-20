@@ -50,7 +50,7 @@ union = Repo.one(from l in Landlord, where: l.name == ^"Union Lets")
 IO.inspect union
 IO.inspect york
 
-{:ok, file} = File.read "../yorent_data/house_data/union_lets.json"
+{:ok, file} = File.read "./house_data/union_lets.json"
 house_dict = Poison.decode! file
 Enum.each house_dict, fn  {k, v} ->
   IO.puts(k)
@@ -64,8 +64,8 @@ Enum.each house_dict, fn  {k, v} ->
              postcode: v["postcode"],
              city_id: york.id,
              landlord_id: union.id,
-             price: to_integer(v["pricepppw"]),
+             price: v["pricepppw"],
              }
-  # IO.inspect v
+  IO.inspect h
   Repo.insert!(h)
 end
