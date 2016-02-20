@@ -18,11 +18,6 @@
       <%= link city.num_houses, to: city_city_landlord_path(@conn, :index, city) %>
       <td><%= city.num_houses %></td>
 
-      <td class="text-right">
-        <!-- <%= link "Show", to: city_path(@conn, :show, city), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: city_path(@conn, :edit, city), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: city_path(@conn, :delete, city), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %> -->
-      </td>
     </tr>
 <% end %>
   </tbody>
