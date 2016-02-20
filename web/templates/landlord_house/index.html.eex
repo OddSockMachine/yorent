@@ -42,7 +42,6 @@
 .row.wide {
   max-width: rem-calc(1200); }
 </style>
-<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
 
 <article class="website-example row wide">
@@ -89,36 +88,4 @@
 
   <% end %>
 
-
-
-<!-- <table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Average rating</th>
-      <th>Postcode</th>
-      <th>City</th>
-      <th>Landlord</th>
-      <th>Price</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for house <- @houses do %>
-    <tr>
-      <td><%= house.name %></td>
-      <td><%= house.average_rating %></td>
-      <td><%= house.postcode %></td>
-      <td><%= house.city_id %></td>
-      <td><%= house.landlord_id %></td>
-      <td><%= house.price %></td>
-      <td class="text-right">
-        <%= link "Show", to: house_path(@conn, :show, house), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: house_path(@conn, :edit, house), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: house_path(@conn, :delete, house), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
 <%= link "New house", to: house_path(@conn, :new) %> -->
